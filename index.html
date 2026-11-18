@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scenario Larp! — Download</title>
+<meta name="description" content="Scenario Larp! is a 2D helmet-cam ragdoll sandbox with 8 maps, 23 guns and random scenarios. Free download for Windows.">
+<meta property="og:title" content="Scenario Larp!">
+<meta property="og:description" content="2D helmet-cam ragdoll sandbox. 8 maps, 23 guns, random scenarios.">
+<meta property="og:image" content="img/construction.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%23c8122e'/><circle cx='32' cy='32' r='16' fill='none' stroke='white' stroke-width='4'/><path d='M32 6v16M32 42v16M6 32h16M42 32h16' stroke='white' stroke-width='4'/><circle cx='32' cy='32' r='4' fill='%23ffd23f'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07050d;--panel:#120c22;--line:rgba(255,255,255,.12);--acc:#ff3d5a;--acc2:#ffd23f;--text:#f2eef8;--mute:#a69fb8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Rubik,system-ui,sans-serif;line-height:1.55;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 1px,transparent 1px 3px);z-index:50}
+a{color:var(--acc2)}
+.mono{font-family:'Share Tech Mono',monospace;letter-spacing:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+/* top bar */
+.bar{position:sticky;top:0;z-index:40;background:rgba(7,5,13,.82);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:18px;height:58px}
+.brand{font-family:Bungee,Impact,sans-serif;font-size:20px;text-decoration:none;color:#fff}
+.brand span{color:var(--acc2)}
+.rec{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#fff}
+.rec i{width:11px;height:11px;border-radius:50%;background:#ff2a2a;box-shadow:0 0 10px #f00;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.bar nav{margin-left:auto;display:flex;gap:18px}
+.bar nav a{color:var(--mute);text-decoration:none;font-size:14px}
+.bar nav a:hover{color:#fff}
+@media(max-width:640px){.bar nav{display:none}}
+/* hero */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-bg{position:absolute;inset:-4%;background:url(img/drive.jpg) center/cover no-repeat;filter:saturate(1.1);animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.1) translate(-1.5%,1%)}}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(7,5,13,.25),rgba(7,5,13,.92) 75%),linear-gradient(180deg,rgba(7,5,13,.2),var(--bg));z-index:1}
+.osd{position:absolute;inset:18px;z-index:2;pointer-events:none;font-family:'Share Tech Mono',monospace;font-size:14px;letter-spacing:2px;text-shadow:0 0 4px #000}
+.osd .c{position:absolute;width:34px;height:34px;border:2px solid rgba(255,255,255,.7)}
+.osd .tl{left:0;top:0;border-right:0;border-bottom:0}.osd .tr{right:0;top:0;border-left:0;border-bottom:0}
+.osd .bl{left:0;bottom:0;border-right:0;border-top:0}.osd .br{right:0;bottom:0;border-left:0;border-top:0}
+.osd .t1{position:absolute;left:46px;top:8px}.osd .t2{position:absolute;right:46px;top:8px}.osd .t3{position:absolute;left:46px;bottom:6px}.osd .t4{position:absolute;right:46px;bottom:6px;opacity:.7}
+.hero-in{position:relative;z-index:3;padding:90px 0 70px;width:100%}
+.tag{color:#ffb3c0;font-size:14px;margin-bottom:10px}
+h1{font-family:Bungee,Impact,sans-serif;font-size:clamp(46px,9vw,108px);line-height:.95;margin:0 0 18px;text-shadow:0 6px 0 #a3122f,0 12px 0 #4a0717,0 0 40px rgba(255,60,90,.6)}
+h1 span{color:var(--acc2);text-shadow:0 6px 0 #a36b00,0 12px 0 #4a3000,0 0 40px rgba(255,210,63,.6)}
+.lead{font-size:clamp(16px,2.2vw,20px);max-width:600px;color:#ddd6ea;margin:0 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:12px;text-decoration:none;border-radius:4px;padding:16px 26px;font-family:'Share Tech Mono',monospace;letter-spacing:3px;font-size:18px;text-transform:uppercase;transition:transform .12s,background .12s,color .12s;border:1px solid rgba(255,255,255,.4);border-left:4px solid var(--acc);color:#fff;background:rgba(0,0,0,.55)}
+.btn:hover{transform:translateY(-2px);background:#fff;color:#000}
+.btn.primary{background:linear-gradient(180deg,#ff3d5a,#b3122f);border-color:#ff8597;border-left-color:#fff;font-size:20px;padding:18px 30px;box-shadow:0 10px 40px rgba(255,61,90,.35)}
+.btn.primary:hover{background:#fff;color:#b3122f}
+.btn svg{width:22px;height:22px;flex:none}
+.meta{margin-top:14px;font-size:13px;color:var(--mute)}
+/* sections */
+section{padding:84px 0;border-bottom:1px solid var(--line)}
+h2{font-family:Bungee,Impact,sans-serif;font-size:clamp(28px,4.5vw,42px);margin:0 0 8px}
+.kicker{color:var(--acc);font-size:13px;margin-bottom:6px}
+.sub{color:var(--mute);margin:0 0 36px;max-width:640px}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gal figure{margin:0;position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#000;cursor:zoom-in}
+.gal figure.big{grid-column:1/-1}
+.gal img{display:block;width:100%;height:auto;transition:transform .4s}
+.gal figure:hover img{transform:scale(1.03)}
+.gal figcaption{position:absolute;left:12px;bottom:10px;font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:2px;background:rgba(0,0,0,.65);padding:4px 10px;border-radius:3px}
+@media(max-width:700px){.gal{grid-template-columns:1fr}}
+/* features */
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card .n{font-family:Bungee,Impact,sans-serif;font-size:34px;color:var(--acc2);line-height:1}
+.card h3{margin:8px 0 6px;font-size:18px}
+.card p{margin:0;color:var(--mute);font-size:15px}
+@media(max-width:860px){.feat{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.feat{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips span{font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:1px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:#0e0a1a;color:#ddd}
+/* install */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;position:relative}
+.step::before{counter-increment:s;content:'0' counter(s);font-family:Bungee,Impact;font-size:42px;color:rgba(255,61,90,.35);position:absolute;right:16px;top:8px}
+.step h3{margin:0 0 8px;font-size:18px}
+.step p{margin:0;color:var(--mute);font-size:15px}
+.step code,.note code{font-family:'Share Tech Mono',monospace;background:#0b0816;border:1px solid var(--line);padding:1px 6px;border-radius:4px;color:#fff}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+.note{margin-top:18px;background:#1a1206;border:1px solid rgba(255,210,63,.35);border-radius:12px;padding:16px 20px;color:#f1e3b8;font-size:15px}
+.note b{color:var(--acc2)}
+.req{margin-top:16px;color:var(--mute);font-size:14px}
+/* controls */
+.ctl{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 40px;max-width:820px}
+.ctl div{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+kbd{font-family:'Share Tech Mono',monospace;background:#1d1434;border:1px solid #4a3a7a;border-bottom-width:3px;border-radius:6px;padding:3px 9px;font-size:14px;color:#fff;white-space:nowrap}
+@media(max-width:640px){.ctl{grid-template-columns:1fr}}
+/* final cta */
+.final{text-align:center}
+.final .cta{justify-content:center}
+footer{padding:30px 0;color:var(--mute);font-size:13px;text-align:center}
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:60;padding:20px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:100%;border-radius:8px}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="#">SCENARIO <span>LARP!</span></a>
+  <span class="rec mono"><i></i>REC</span>
+  <nav><a href="#footage">Footage</a><a href="#features">Features</a><a href="#install">Install</a><a href="#controls">Controls</a></nav>
+</div></header>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="osd"><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+    <span class="t1">● REC <span id="rt">00:00:00</span></span><span class="t2">4K·60 · WIDE</span><span class="t3" id="dt"></span><span class="t4">LARPCAM HERO · CAM 01</span></div>
+  <div class="wrap hero-in">
+    <div class="tag mono">● CAM 01 · HELMET CAM FOOTAGE</div>
+    <h1>SCENARIO<br><span>LARP!</span></h1>
+    <p class="lead">A 2D ragdoll sandbox filmed through a helmet cam. Drive to the scene, grab the duffel bag from your trunk, and see how each random scenario plays out across 8 maps with 23 guns.</p>
+    <div class="cta">
+      <a class="btn primary" id="dl" href="https://github.com/quazarm24-creator/scenario-larp/releases/latest/download/ScenarioLarp.exe">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 10l6 6 6-6M4 20h16"/></svg>Download for Windows</a>
+      <a class="btn" href="play/">▶ Play in browser</a>
+    </div>
+    <div class="meta mono">v1.3 · ScenarioLarp.exe · ~160 KB · Windows 10/11 · <a href="downloads/ScenarioLarp.exe">mirror</a></div>
+  </div>
+</div>
+
+<section id="footage"><div class="wrap">
+  <div class="kicker mono">// RAW FOOTAGE</div>
+  <h2>Straight off the helmet cam</h2>
+  <p class="sub">Fisheye lens, chromatic fringing, grain and a blinking REC dot. Every frame looks like it came off a GoPro.</p>
+  <div class="gal">
+    <figure class="big"><img src="img/construction.jpg" alt="Construction site map with scaffolding and workers" loading="lazy"><figcaption>CONSTRUCTION SITE · SCAR-H</figcaption></figure>
+    <figure><img src="img/menu.jpg" alt="Main menu seen from behind the open car trunk" loading="lazy"><figcaption>MAIN MENU · THE TRUNK</figcaption></figure>
+    <figure><img src="img/beach.jpg" alt="Beach map with boardwalk and lifeguard tower" loading="lazy"><figcaption>BEACH · BARRETT M82</figcaption></figure>
+    <figure><img src="img/office.jpg" alt="Office map with two floors of desks" loading="lazy"><figcaption>OFFICE · MP5</figcaption></figure>
+    <figure><img src="img/drive.jpg" alt="Loading screen: first-person drive with a GPS phone on the dash" loading="lazy"><figcaption>LOADING · THE DRIVE IN</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <div class="kicker mono">// LOADOUT</div>
+  <h2>What's in the duffel bag</h2>
+  <p class="sub">Each map rolls a random scenario, so no two runs play the same.</p>
+  <div class="feat">
+    <div class="card"><div class="n">8</div><h3>Maps</h3><p>Neighborhood, Store, House, Gas Station, Office, Construction Site, Beach and Campground.</p></div>
+    <div class="card"><div class="n">23</div><h3>Guns</h3><p>Rifles, SMGs, pistols, shotguns, an LMG, and snipers whose shots go through several bodies at once.</p></div>
+    <div class="card"><div class="n">24</div><h3>Scenarios</h3><p>Black Friday Rush, Office Party, Bonfire Night, Ghost Stories and more, with crowds that panic and scatter.</p></div>
+    <div class="card"><div class="n">2.5D</div><h3>Depth camera</h3><p>Zoom, lean and head-bob, extruded 3D props, a perspective floor and a foreground layer.</p></div>
+    <div class="card"><div class="n">∞</div><h3>Gun graffiti</h3><p>Draw, stamp text and erase on any gun. Your ink shows up on the weapon in-game.</p></div>
+    <div class="card"><div class="n">REC</div><h3>Ragdoll physics</h3><p>Hit zones, headshots, blood pools, limping, recoil climb, and bodies you can drag and fling.</p></div>
+  </div>
+  <div class="chips">
+    <span>AR-556</span><span>Mossberg</span><span>AKM</span><span>AK-47</span><span>Glock 17</span><span>MP5</span><span>Uzi</span><span>Kriss Vector</span><span>Desert Eagle</span><span>M1911</span><span>Draco</span><span>SCAR-H</span><span>SKS</span><span>Remington 700</span><span>Barrett M82</span><span>M249 SAW</span><span>P90</span><span>MAC-10</span><span>Thompson</span><span>G36C</span><span>FN FAL</span><span>.357 Revolver</span><span>Saiga-12</span>
+  </div>
+</div></section>
+
+<section id="install"><div class="wrap">
+  <div class="kicker mono">// INSTALL</div>
+  <h2>Up and running in 30 seconds</h2>
+  <p class="sub">There's no installer. It's one small EXE, so you just run it.</p>
+  <div class="steps">
+    <div class="step"><h3>Download</h3><p>Click <b>Download for Windows</b> to get <code>ScenarioLarp.exe</code>. Put it anywhere, like your Desktop or a Games folder.</p></div>
+    <div class="step"><h3>Run it</h3><p>Double-click the EXE. The game opens fullscreen in its own window. Press <kbd>F11</kbd> to leave fullscreen.</p></div>
+    <div class="step"><h3>Larp</h3><p>Pick a map, walk to your trunk, press <kbd>F</kbd> to grab the duffel bag, and go. Your progress and gun ink save automatically.</p></div>
+  </div>
+  <div class="note"><b>Seeing “Windows protected your PC”?</b> That's Microsoft SmartScreen. It shows up for small indie EXEs that aren't code-signed. Click <b>More info</b> → <b>Run anyway</b>. The launcher only unpacks the game to <code>%LOCALAPPDATA%\ScenarioLarp</code> and opens it.</div>
+  <p class="req">Requires Windows 10 or 11 with Microsoft Edge (built in) or Google Chrome. Run <code>ScenarioLarp.exe --windowed</code> to start in a window. On Mac or Linux, use <a href="play/">Play in browser</a>.</p>
+</div></section>
+
+<section id="controls"><div class="wrap">
+  <div class="kicker mono">// CONTROLS</div>
+  <h2>Controls</h2>
+  <p class="sub">Keyboard and mouse.</p>
+  <div class="ctl">
+    <div><kbd>A</kbd><kbd>D</kbd> Walk · <kbd>Shift</kbd> sprint</div>
+    <div><kbd>W</kbd>/<kbd>Space</kbd> Jump · <kbd>S</kbd> drop down</div>
+    <div><kbd>F</kbd> Grab duffel bag from trunk</div>
+    <div><kbd>LMB</kbd> Shoot · aim with mouse</div>
+    <div><kbd>R</kbd> Reload</div>
+    <div><kbd>Q</kbd>/<kbd>1-0</kbd>/wheel Switch gun</div>
+    <div><kbd>RMB</kbd> Drag ragdolls</div>
+    <div><kbd>N</kbd> New random scenario</div>
+    <div><kbd>Esc</kbd> Pause menu</div>
+    <div><kbd>F11</kbd> Toggle fullscreen</div>
+  </div>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Hit record.</h2>
+  <p class="sub" style="margin:0 auto 28px">Free. Small download. Runs on any Windows 10/11 PC.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://github.com/quazarm24-creator/scenario-larp/releases/latest/download/ScenarioLarp.exe">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 10l6 6 6-6M4 20h16"/></svg>Download for Windows</a>
+    <a class="btn" href="play/">▶ Play in browser</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap mono">SCENARIO LARP! · A FICTIONAL CARTOON SANDBOX · <a href="https://github.com/quazarm24-creator/scenario-larp/releases">ALL RELEASES</a></div></footer>
+
+<div class="lb" id="lb"><img alt=""></div>
+<script>
+(function(){
+  var t0=Date.now(),p=function(v){return String(v).padStart(2,'0')};
+  function tick(){var s=Math.floor((Date.now()-t0)/1000),d=new Date();
+    document.getElementById('rt').textContent=p(s/3600|0)+':'+p((s/60|0)%60)+':'+p(s%60);
+    document.getElementById('dt').textContent=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'  '+p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());}
+  tick();setInterval(tick,1000);
+  var lb=document.getElementById('lb');
+  document.querySelectorAll('.gal img').forEach(function(im){im.parentNode.addEventListener('click',function(){lb.querySelector('img').src=im.src;lb.classList.add('on');});});
+  lb.addEventListener('click',function(){lb.classList.remove('on');});
+})();
+</script>
+</body>
+</html>
